@@ -8,7 +8,7 @@ source "$_cs_boot" 2>/dev/null || source <(curl -fsSL "${COMMUNITY_SCRIPTS_CORE_
 # Copyright (c) 2024-2026 community-scripts ORG
 # Author: Randy
 # License: MIT | https://github.com/community-scripts/ProxmoxVED/raw/main/LICENSE
-# Source: https://github.com/SystemRage/py-kms
+# Source: https://github.com/Py-KMS-Organization/py-kms
 
 APP="PyKMS"
 var_tags="${var_tags:-kms;activation}"
