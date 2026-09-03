@@ -50,7 +50,7 @@ RestartSec=5
 KillMode=process
 User=root
 WorkingDirectory=/opt/py-kms/py-kms
-ExecStart=/opt/py-kms-env/bin/python3 /opt/py-kms/py-kms/pykms_Server.py :: 1688 -V INFO -F /var/log/pykms.log -w RANDOM --sqlite /opt/py-kms/db/pykms_database.db
+ExecStart=/opt/py-kms-env/bin/python3 /opt/py-kms/py-kms/pykms_Server.py 0.0.0.0 1688 -V INFO -F /var/log/pykms.log -w RANDOM --sqlite /opt/py-kms/db/pykms_database.db
 StandardOutput=journal
 StandardError=journal
 
