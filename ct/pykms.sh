@@ -39,13 +39,13 @@ function update_script() {
   if git pull | grep -q 'Already up to date.'; then
     msg_ok "py-kms is already up to date"
   else
-    msg_info "Stopping Service"
-    systemctl stop py-kms
-    msg_ok "Stopped Service"
+    msg_info "Stopping Services"
+    systemctl stop py-kms py-kms-webui
+    msg_ok "Stopped Services"
 
-    msg_info "Starting Service"
-    systemctl start py-kms
-    msg_ok "Started Service"
+    msg_info "Starting Services"
+    systemctl start py-kms py-kms-webui
+    msg_ok "Started Services"
     msg_ok "Updated successfully!"
   fi
   exit
@@ -57,5 +57,5 @@ description
 
 msg_ok "Completed Successfully!\n"
 echo -e "${CREATING}${GN}${APP} setup has been successfully initialized!${CL}"
-echo -e "${INFO}${YW}Access it using the following IP:${CL}"
-echo -e "${GATEWAY}${BGN}${IP}:1688${CL}"
+echo -e "${INFO}${YW} Access KMS Server IP: ${BGN}${IP}:1688${CL}"
+echo -e "${INFO}${YW} Access WebUI URL: ${BGN}http://${IP}:8080${CL}"
