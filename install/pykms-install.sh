@@ -17,23 +17,22 @@ msg_info "Installing Dependencies"
 $STD apt install -y \
   git \
   python3 \
-  python3-pip \
-  python3-venv \
   python3-tk \
   sqlite3
 msg_ok "Installed Dependencies"
+
+UV_PYTHON="3.9" setup_uv
 
 msg_info "Installing py-kms"
 PYKMS_DIR="/opt/py-kms"
 $STD git clone https://github.com/SystemRage/py-kms.git "$PYKMS_DIR"
 cd "$PYKMS_DIR/py-kms" || exit
-python3 -m venv /opt/py-kms-env
+$STD uv venv --python 3.9 /opt/py-kms-env
 source /opt/py-kms-env/bin/activate
-$STD pip install --upgrade pip
 if [[ -f "$PYKMS_DIR/requirements.txt" ]]; then
-  $STD pip install -r "$PYKMS_DIR/requirements.txt"
+  $STD uv pip install -r "$PYKMS_DIR/requirements.txt"
 fi
-$STD pip install tzlocal pysqlite3
+$STD uv pip install tzlocal pysqlite3
 deactivate
 mkdir -p /opt/py-kms/db
 msg_ok "Installed py-kms"
