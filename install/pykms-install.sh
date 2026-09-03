@@ -26,7 +26,7 @@ msg_ok "Installed Dependencies"
 msg_info "Installing py-kms"
 PYKMS_DIR="/opt/py-kms"
 $STD git clone https://github.com/SystemRage/py-kms.git "$PYKMS_DIR"
-cd "$PYKMS_DIR/py_kms" || exit
+cd "$PYKMS_DIR/py-kms" || exit
 python3 -m venv /opt/py-kms-env
 source /opt/py-kms-env/bin/activate
 $STD pip install --upgrade pip
@@ -50,8 +50,8 @@ Restart=always
 RestartSec=5
 KillMode=process
 User=root
-WorkingDirectory=/opt/py-kms/py_kms
-ExecStart=/opt/py-kms-env/bin/python3 /opt/py-kms/py_kms/pykms_Server.py :: 1688 -V INFO -F /var/log/pykms.log --sqlite -w RANDOM
+WorkingDirectory=/opt/py-kms/py-kms
+ExecStart=/opt/py-kms-env/bin/python3 /opt/py-kms/py-kms/pykms_Server.py :: 1688 -V INFO -F /var/log/pykms.log --sqlite -w RANDOM
 StandardOutput=journal
 StandardError=journal
 
